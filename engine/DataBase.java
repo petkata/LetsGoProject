@@ -10,7 +10,6 @@ public class DataBase {
 	
 	private Set<Event> eventList; 
 	private Set<User> userList;
-	private Iterator<Event> it;
 	
 	private DataBase(){
 		this.eventList = new HashSet<Event>();
@@ -50,10 +49,11 @@ public class DataBase {
 	}
 	
 	void removeEventFromDb(String eventName){
-		this.it = this.eventList.iterator();
-		while (this.it.hasNext()) {
-			if (this.it.next().getName().equals(eventName)) {
-				this.it.remove();
+		Iterator<Event> it;
+		it = this.eventList.iterator();
+		while (it.hasNext()) {
+			if (it.next().getName().equals(eventName)) {
+				it.remove();
 				return;
 			}
 		}

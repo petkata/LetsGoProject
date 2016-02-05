@@ -7,7 +7,6 @@ import java.util.Set;
 public class User extends Account{
 
 	private Set<Event> watchtList;
-	private Iterator<Event> it;
 	public User(String email, String password) {
 		super(email, password);
 		// TODO Auto-generated constructor stub
@@ -41,10 +40,11 @@ public class User extends Account{
 	
 	public void userRemoveFromWatchList(String eventName){
 		if (this.checkUser()) {
-			this.it = this.watchtList.iterator();
-			while (this.it.hasNext()) {
-				if (this.it.next().getName().equals(eventName)) {
-					this.it.remove();
+			Iterator<Event> it;
+			it = this.watchtList.iterator();
+			while (it.hasNext()) {
+				if (it.next().getName().equals(eventName)) {
+					it.remove();
 					return;
 				}
 			}
