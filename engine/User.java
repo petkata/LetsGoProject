@@ -64,6 +64,15 @@ public class User extends Account{
 		System.out.println("Please login");
 	}
 
+	public void editprofile(String newEmail, String newPassword){
+		if (newEmail!=null) {
+			super.setEmail(newEmail);
+		}
+		if (newPassword!=null) {
+			super.setPassword(newPassword);
+		}
+	}
+	
 	private boolean checkUser(){
 		if (super.getHasLogged() && DataBase.getInstance().getUserList().contains(this)) {
 			return true;

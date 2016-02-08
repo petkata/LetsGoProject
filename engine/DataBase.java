@@ -59,6 +59,12 @@ public class DataBase {
 		}
 	}
 	
+	public void ShowAllEvents(){
+			for (Event event : eventList) {
+				System.out.println(event);
+			}
+			return;
+	}
 	
 	void addUserToDb(User newUser){
 		this.userList.add(newUser);

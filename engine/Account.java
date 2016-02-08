@@ -31,6 +31,14 @@ public class Account {
 		}
 	}
 	
+ 	
+ 	protected void setEmail(String newEmail){
+ 		 this.email = newEmail;
+ 	 }
+ 	 
+ 	 protected void setPassword(String newPassword){
+ 		 this.password = newPassword;
+ 	 }
 	public void logout(){
 		this.hasLogged = false;
 		System.out.println("Goodbye!");
