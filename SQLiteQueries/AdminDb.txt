@@ -1,0 +1,20 @@
+INSERT INTO events (event_name,ticket_price,event_date,event_location,event_type,) 
+	VALUES("event1", 
+	65 , 
+	"2016-12-31",
+	SELECT location_id FROM locations WHERE location_name = 'inputLocation', 
+	SELECT type_id FROM types WHERE type_name = 'inputtype'  )
+	
+
+DELETE FROM events_users WHERE ev_id = (SELECT event_id FROM events WHERE event_name = 'inputEvent')
+DELETE FROM events WHERE event_name = 'inputEvent'
+
+UPDATE events SET 'chosen column' = 'input' WHERE event_id = (SELECT event_id FROM events WHERE event_name = 'inputEvent')
+
+SELECT (event_name,ticket_price,event_date,event_location,event_type,) FROM events WHERE event_date >= DATE('now')
+
+SELECT (event_name,ticket_price,event_date,event_location,event_type,) FROM events WHERE event_date < DATE('now') 
+
+SELECT (user_name,user_email) FROM users WHERE user_name = 'inputUsername'
+
+SELECT (user_name,event_name) FROM users JOIN events_users ON user_id = u_id JOIN events ON ev_id = event_id 
